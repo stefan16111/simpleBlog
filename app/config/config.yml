@@ -38,6 +38,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    
+    form_themes: ['bootstrap_3_layout.html.twig']
+        #: ['bootstrap_3_horizontal_layout.html.twig']
 
 # Doctrine Configuration
 doctrine:
@@ -68,3 +71,21 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+    
+knp_paginator:
+    # default page range used in pagination control
+    page_range: 5                      
+    default_options:
+        # page query parameter name
+        page_name: page  
+        # sort field query parameter name
+        sort_field_name: sort    
+        # sort direction query parameter name
+        sort_direction_name: direction 
+        # ensure distinct results, useful when ORM queries are using GROUP BY statements
+        distinct: true                 
+    template:
+        # sliding pagination controls template
+        pagination: 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig'
+        # sort link template
+        sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig' 

@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="comment")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentRepository")
  */
-class Comment {
-
+class Comment
+{
     /**
      * @var int
      *
@@ -40,24 +40,20 @@ class Comment {
      * @ORM\ManyToOne(targetEntity="Post", inversedBy="coments")
      */
     private $post;
-
+    
     /**
      * @var type 
      * @ORM\ManyToOne(targetEntity="User", inversedBy="coments")
-     * @ORM\JoinColumn(name="user_id", nullable=true)
      */
     private $user;
-
-    public function __construct() {
-        $this->setCreatedAt(date_create(date("Y-m-d H:i:s")));
-    }
-
+    
     /**
      * Get id
      *
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -68,7 +64,8 @@ class Comment {
      *
      * @return Comment
      */
-    public function setContent($content) {
+    public function setContent($content)
+    {
         $this->content = $content;
 
         return $this;
@@ -79,7 +76,8 @@ class Comment {
      *
      * @return string
      */
-    public function getContent() {
+    public function getContent()
+    {
         return $this->content;
     }
 
@@ -90,7 +88,8 @@ class Comment {
      *
      * @return Comment
      */
-    public function setCreatedAt($createdAt) {
+    public function setCreatedAt($createdAt)
+    {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -101,52 +100,9 @@ class Comment {
      *
      * @return \DateTime
      */
-    public function getCreatedAt() {
+    public function getCreatedAt()
+    {
         return $this->createdAt;
     }
-
-    /**
-     * Set post
-     *
-     * @param \AppBundle\Entity\Post $post
-     *
-     * @return Comment
-     */
-    public function setPost(\AppBundle\Entity\Post $post = null) {
-        $this->post = $post;
-
-        return $this;
-    }
-
-    /**
-     * Get post
-     *
-     * @return \AppBundle\Entity\Post
-     */
-    public function getPost() {
-        return $this->post;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     *
-     * @return Comment
-     */
-    public function setUser(\AppBundle\Entity\User $user = null) {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUser() {
-        return $this->user;
-    }
-
 }
+
