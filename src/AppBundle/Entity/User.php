@@ -4,8 +4,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\Comment;
 
 /**
  * User
@@ -36,7 +34,7 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->comments = new ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -56,7 +54,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function addComment(Comment $comment)
+    public function addComment(\AppBundle\Entity\Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -68,7 +66,7 @@ class User extends BaseUser
      *
      * @param \AppBundle\Entity\Comment $comment
      */
-    public function removeComment(Comment $comment)
+    public function removeComment(\AppBundle\Entity\Comment $comment)
     {
         $this->comments->removeElement($comment);
     }

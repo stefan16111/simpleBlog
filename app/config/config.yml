@@ -89,6 +89,7 @@ knp_paginator:
         pagination: 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig'
         # sort link template
         sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig' 
+
 fos_user:
     # other valid values are 'mongodb', 'couchdb' and 'propel'    
     db_driver: orm 
@@ -97,3 +98,8 @@ fos_user:
     from_email:
         address: "noreply@yourcompany.com"
         sender_name: "No Reply"
+
+easy_admin:
+    entities:
+        - AppBundle\Entity\Post
+        - AppBundle\Entity\Comment

@@ -148,5 +148,8 @@ class Comment {
     public function getUser() {
         return $this->user;
     }
-
+    
+    public function __toString(){
+        return $this->content;
+    }
 }
